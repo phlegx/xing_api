@@ -88,4 +88,15 @@ describe XingApi::User do
       described_class.status_message('message')
     end
   end
+
+  describe '.link' do
+    it_behaves_like 'a Xing API call'
+
+    it 'invokes the correct API call' do
+      expect_request(:post, '/v1/users/me/share/link', {:uri => 'http://example.com'})
+
+      described_class.link('http://example.com')
+    end
+  end
+
 end
