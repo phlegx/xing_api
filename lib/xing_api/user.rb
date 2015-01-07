@@ -37,5 +37,9 @@ module XingApi
       request(:post, '/v1/users/me/status_message', {:message => message}.merge(options))
     end
 
+    def self.link(uri, options={})
+      request(:post, '/v1/users/me/share/link', {:uri => uri}.merge(options))
+    end
+
   end
 end
